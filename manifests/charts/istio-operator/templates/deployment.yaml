@@ -18,8 +18,8 @@ spec:
         - name: istio-operator
           image: {{.Values.hub}}/operator:{{.Values.tag}}
           command:
-          - operator
-          - server
+            - operator
+            - server
           imagePullPolicy: IfNotPresent
           resources:
             limits:
@@ -39,4 +39,6 @@ spec:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
               value: {{.Values.operatorNamespace | quote}}
+            - name: WAIT_FOR_RESOURCES_TIMEOUT
+              value: {{.Values.waitForResourcesTimeout | quote}}
 ---

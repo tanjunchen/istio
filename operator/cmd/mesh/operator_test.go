@@ -74,6 +74,7 @@ func TestOperatorInit(t *testing.T) {
 			tag:               "1.2.3",
 			operatorNamespace: "operator-test-namespace",
 			watchedNamespaces: "istio-test-namespace1,istio-test-namespace2",
+			charts:            string(snapshotCharts),
 		},
 	}
 
