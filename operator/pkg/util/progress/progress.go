@@ -32,6 +32,7 @@ const (
 	StateInstalling InstallState = iota
 	StatePruning
 	StateComplete
+	StateUninstallComplete
 )
 
 // Log records the progress of an installation

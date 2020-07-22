@@ -86,6 +86,8 @@ const (
 	// Operator components
 	IstioOperatorComponentName      ComponentName = "IstioOperator"
 	IstioOperatorCustomResourceName ComponentName = "IstioOperatorCustomResource"
+
+	IstioDefaultNamespace = "istio-system"
 )
 
 // ComponentNamesConfig is used for unmarshaling legacy and addon naming data.
@@ -136,6 +138,40 @@ var (
 		IstiodRemoteComponentName:       "Istiod remote",
 	}
 	scanAddons sync.Once
+)
+
+// Kubernetes Kind strings.
+const (
+	ClusterRoleStr                    = "ClusterRole"
+	ClusterRoleBindingStr             = "ClusterRoleBinding"
+	CMStr                             = "ConfigMap"
+	MutatingWebhookConfigurationStr   = "MutatingWebhookConfiguration"
+	PVCStr                            = "PersistentVolumeClaim"
+	SecretStr                         = "Secret"
+	ValidatingWebhookConfigurationStr = "ValidatingWebhookConfiguration"
+)
+
+// Istio Kind strings
+const (
+	EnvoyFilterStr        = "EnvoyFilter"
+	GatewayStr            = "Gateway"
+	DestinationRuleStr    = "DestinationRule"
+	PeerAuthenticationStr = "PeerAuthentication"
+	VirtualServiceStr     = "VirtualService"
+)
+
+// Istio API Group Names
+const (
+	NetworkingAPIGroupName = "networking.istio.io"
+	SecurityAPIGroupName   = "security.istio.io"
+)
+
+var (
+	// AllComponentNames is a list of all Istio components.
+	AllComponentNames = append(AllCoreComponentNames, IngressComponentName, EgressComponentName,
+		IstioOperatorComponentName, IstioOperatorCustomResourceName)
+
+	allCoreComponentNamesMap = map[ComponentName]bool{}
 )
 
 func init() {
