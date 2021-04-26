@@ -37,6 +37,7 @@ source /opt/rh/devtoolset-7/enable
 
 cd /builder || exit 1
 git clone  https://github.com/istio/proxy.git istio-proxy
+#git clone  https://github.com.cnpmjs.org/istio/proxy.git istio-proxy
 cd istio-proxy || exit 1
 git checkout "${ISTIO_ENVOY_VERSION}"
 

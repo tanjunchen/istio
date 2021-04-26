@@ -17,6 +17,7 @@ rpm/istio:
 rpm/proxy:
 	docker run --rm -it \
         -v ${GO_TOP}:${GO_TOP} \
+        -v /root/go/src/istio.io/istio:/work \
 				-w /builder \
         -e USER=${USER} \
 				-e ISTIO_ENVOY_VERSION=${ISTIO_ENVOY_VERSION} \
